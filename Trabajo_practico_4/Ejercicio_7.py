@@ -12,7 +12,7 @@ while True:
     print("2-Agregar plato a ticket")
     print("3-Quitar plato de ticket")
     print("4-Elegir metodo de pago (C-TD-TC)")
-    PRINT("5-Mostrar ticket")
+    print("5-Mostrar ticket")
     choice = int(input("Ingrese una opción del menu (0 para salir): "))
     print()
     if choice == 1:
