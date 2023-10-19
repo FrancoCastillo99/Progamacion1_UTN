@@ -24,11 +24,12 @@ while True:
     print(clone_player)
 
     while True:
-        letter = input("Intente adivinar una letra!: ")
+        letter = input("Intente adivinar una letra!: ").lower()
 
         # Verifico si ingreso una sola letra
         if len(letter) > 1:
             print("Ingrese una sola letra!")
+            print()
         else:
             break
 
