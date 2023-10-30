@@ -178,4 +178,114 @@ def bingo(row):
         return False
 
 
+def remove_number(numbers, search):
+    new_numbers = []
+    found = False
+    
+    for n in numbers:
+        if n == search:
+            found = True
+        else:
+            new_numbers.append(n)
 
+    if found:
+        return new_numbers
+    else:
+        print("No se encontró coincidencia")
+        return numbers
+    
+def numbers_less(numbers,limit):
+    num_less =[]
+
+    numbers.sort()
+
+    num_less = numbers.copy()
+
+    for n in numbers:
+        if n > limit:
+            num_less.remove(n)
+
+    return num_less
+
+def repeated_numbers(numbers):
+    count = {}
+    for num in numbers:
+        if num in count:
+            count[num] += 1
+        else:
+            count[num] = 1
+    
+    # Creamos las tuplas a partir del diccionario
+    new_list = [(num, repeat) for num, repeat in count.items()]
+    
+    return new_list
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        # El último i elementos ya están en su lugar correcto, así que no es necesario revisarlos nuevamente
+        for j in range(0, n-i-1):
+            # Intercambia si el elemento encontrado es mayor que el siguiente elemento
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    
+    return arr
+
+def selection_sort(arr):
+    n = len(arr)
+    
+    # Iterar a través de todos los elementos del arreglo
+    for i in range(n):
+        # Encontrar el valor mínimo en el arreglo sin ordenar
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        
+        # Intercambiar el elemento mínimo encontrado con el primer elemento sin ordenar
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    
+    return arr
+
+def len_sort(ln, word):
+    n = len(ln)
+    for i in range(n):
+        # Los últimos i elementos ya están en su lugar correcto, así que no es necesario revisarlos nuevamente
+        for j in range(0, n-i-1):
+            # Intercambia si el elemento encontrado es mayor que el siguiente elemento
+            if ln[j] > ln[j+1]:
+                ln[j], ln[j+1] = ln[j+1], ln[j]
+                word[j], word[j+1] = word[j+1], word[j]
+
+    return word
+
+def count_digit(n):
+    if n < 10:
+        return 1
+    else:
+        return 1 + count_digit(n // 10)
+    
+def is_pow(n, b):
+    # Caso base: si n es igual a 1, se considera que es una potencia de b (b^0 = 1)
+    if n == 1:
+        return True
+    # Caso base: si n es menor que b, ya no puede ser una potencia de b
+    if n < b:
+        return False
+    # Si n es divisible por b, divídelo y sigue verificando recursivamente
+    if n % b == 0:
+        return is_pow(n / b, b)
+    # Si ninguno de los casos anteriores se cumple, n no es una potencia de b
+    return False
+
+def par(n):
+    if n == 0:
+        return True  # El 0 se considera par
+    else:
+        return impar(n - 1)
+
+def impar(n):
+    if n == 0:
+        return False  # El 1 se considera impar
+    else:
+        return par(n - 1)
